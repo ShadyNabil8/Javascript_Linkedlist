@@ -44,6 +44,20 @@ class LinkedList {
             else node.next = node.next.next;
         }
     }
+    reverse() {
+        let prev = null;
+        let cur = this.head;
+        if (cur != null) {
+            while (cur != null) {
+                let next = cur.next;
+                cur.next = prev;
+                prev = cur;
+                cur = next;
+            }
+        }
+        this.tail = this.head;
+        this.head = prev;
+    }
     print() {
         let node = this.head;
         while (node != null) {
@@ -55,13 +69,13 @@ class LinkedList {
 
 
 let ll = new LinkedList(1);
-ll.remove(0);
 ll.insert(2);
-// ll.insert(3);
-// ll.insert(4);
-// ll.insert(5);
-// ll.insert(6);
-// ll.insert(7);
+ll.insert(3);
+ll.insert(4);
+ll.insert(5);
+ll.insert(6);
+ll.insert(7);
+ll.reverse();
 //ll.remove(0);
 ll.print();
 
